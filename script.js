@@ -18,3 +18,6 @@ function playText(text)
         textInput.disabled=false;   //it means it will allow editing after speech end
     })
 }
+
+
+//9:04
