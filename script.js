@@ -8,8 +8,12 @@ playButton.addEventListener('click',()=>{
     playText(textInput.value);
 })
 
+pauseButton.addEventListener('click',pauseText);
+stopButton.addEventListener('click',stopText); 
 function playText(text)
 {
+    if(speechSynthesis.paused &&speechSynthesis.speaking)
+        return speechSynthesis.resume(); 
     const utterance=new SpeechSynthesisUtterance(text);
     utterance.rate=speedInput.value || 1; // speed
     textInput.disabled=true; // it means during playing text input field gets disabled i.e. no input will be taken.
@@ -19,5 +23,13 @@ function playText(text)
     })
 }
 
+function pauseText()
+{
+    if(speechSynthesis.speaking)
+    speechSynthesis.pause();
+}
 
-//9:04
+function stopText()
+{
+
+}
